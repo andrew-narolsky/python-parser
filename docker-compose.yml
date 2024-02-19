@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+
+#  selenium:
+#    image: selenium/standalone-chrome
+#    ports:
+#      - 4444:4444
+
+  web:
+    build: ./project
+    ports:
+      - 8080:8000
+    command: uvicorn main:app --host 0.0.0.0 --reload
+    volumes:
+      - ./project:/usr/src/app
+#    depends_on:
+#      - selenium
